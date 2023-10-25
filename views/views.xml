@@ -1,28 +1,69 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
+
     <record model="ir.ui.view" id="tareas.list">
-      <field name="name">Tareas list</field>
+      <field name="name">Tareas tareas</field>
       <field name="model">tareas.tareas</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="nombre"/>
         </tree>
       </field>
     </record>
--->
+    <record model="ir.ui.view" id="tareas.list_sprint">
+      <field name="name">Tareas sprint</field>
+      <field name="model">tareas.sprint</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="tareas.list_">
+      <field name="name">Tareas tecnologias</field>
+      <field name="model">tareas.tecnologias</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_tecnologias_form" model="ir.ui.view">
+      <field name="name">tareas.tecnologias.form</field>
+      <field name="model">tareas.tecnologias</field>
+      <field name="arch" type="xml">
+        <form string="Tecnología">
+          <sheet>
+            <group>
+              <field name="nombre"/>
+              <field name="imagen" widget="image"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
-<!--
+
     <record model="ir.actions.act_window" id="tareas.action_window">
-      <field name="name">Tareas window</field>
+      <field name="name">Tareas</field>
       <field name="res_model">tareas.tareas</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
+    <record model="ir.actions.act_window" id="tareas.action_window_sprint">
+      <field name="name">Sprint</field>
+      <field name="res_model">tareas.sprint</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tareas.action_window_tecnologias">
+      <field name="name">Tecnologias</field>
+      <field name="res_model">tareas.tecnologias</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
 <!--
@@ -41,20 +82,22 @@
 -->
 
     <!-- Top menu item -->
-<!--
+
     <menuitem name="Tareas" id="tareas.menu_root"/>
--->
+
     <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="tareas.menu_1" parent="tareas.menu_root"/>
-    <menuitem name="Menu 2" id="tareas.menu_2" parent="tareas.menu_root"/>
--->
+
+    <menuitem name="Tareas" id="tareas.menu_1" parent="tareas.menu_root"/>
+    <menuitem name="Sprints" id="tareas.menu_2" parent="tareas.menu_root"/>
+    <menuitem name="Tecnologias" id="tareas.menu_3" parent="tareas.menu_root"/>
+
     <!-- actions -->
-<!--
+
     <menuitem name="List" id="tareas.menu_1_list" parent="tareas.menu_1"
               action="tareas.action_window"/>
-    <menuitem name="Server to list" id="tareas" parent="tareas.menu_2"
-              action="tareas.action_server"/>
--->
+    <menuitem name="List" id="tareas.menu_2_list" parent="tareas.menu_2"
+              action="tareas.action_window_sprint"/>
+    <menuitem name="List" id="tareas.menu_3_list" parent="tareas.menu_3"
+              action="tareas.action_window_tecnologias"/>
   </data>
 </odoo>
